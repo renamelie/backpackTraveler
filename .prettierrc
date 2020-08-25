@@ -1,4 +1,9 @@
 {
-  "arrowParens": "avoid",
-  "semi": false
+  "prettier.requireConfig": true,
+  "tabWidth": 2,
+  "useTabs": true,
+  "semi": false,
+  "singleQuote": true,
+  "endOfLine": "auto",
+  "arrowParens": "avoid"
 }
