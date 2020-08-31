@@ -1,9 +1,10 @@
 ---
 title: THE WORLD'S BEST DRINKING
 date: '2018-09-03T22:12:03.284Z'
-description: 'Hello World'
+description: 'Lorem ipsum dolor sit amet, no elitr tation delicata cum, mei in causae deseruisse. Has eruditi singulis principes ad, eam fuisset voluptua ea, pro ceteros adipisci in. Sed tempor adversarium ad'
 country: 'Brazil'
 category: 'Adventure'
+posttype: 'blog'
 image: './photo.jpg'
 ---
 

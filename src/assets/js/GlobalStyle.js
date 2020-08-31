@@ -1,5 +1,6 @@
-import { createGlobalStyle } from "styled-components"
-import epicRide from "../fonts/Epic-Ride.ttf"
+import { createGlobalStyle } from 'styled-components'
+import epicRide from '../fonts/Epic-Ride.ttf'
+import { pxToRem, media } from './helpers'
 
 const Global = createGlobalStyle`
   * {
@@ -28,60 +29,34 @@ const Global = createGlobalStyle`
 		color: #f7775e;
 	}
 
-  @keyframes gradient {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
+  h3,
+	p {
+		margin: 1rem 1rem 0;
+	}
 
-  @keyframes slide {
-    0% {
-      transform: translate(0, 0);
-    }
-    100% {
-      transform: translate(0, 0);
-    }
-    50% {
-      transform: translate(10px, 0);
-    }
-  }
+	h3 {
+		font-family: Montserrat, sans-serif;
+		font-weight: 400;
+		font-size: ${pxToRem(17)};
+		line-height: 1.33em;
+		letter-spacing: 0.2em;
+		text-transform: uppercase;
+	}
 
-  @keyframes rubberBand {
-    from {
-      transform: scale3d(1, 1, 1);
-    }
+	p {
+		color: #838383;
+		font-size: ${pxToRem(18)};
+		line-height: 30px;
+	}
 
-    30% {
-      transform: scale3d(1.25, 0.75, 1);
+	${media.medium`
+		h3 {
+      font-size: ${pxToRem(24)};
     }
-
-    40% {
-      transform: scale3d(0.75, 1.25, 1);
+    p {
+      font-size: ${pxToRem(16)};
     }
-
-    50% {
-      transform: scale3d(1.15, 0.85, 1);
-    }
-
-    65% {
-      transform: scale3d(.95, 1.05, 1);
-    }
-
-    75% {
-      transform: scale3d(1.05, .95, 1);
-    }
-
-    to {
-      transform: scale3d(1, 1, 1);
-    }
-  }
-
+  `};
 
 `
 

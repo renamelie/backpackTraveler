@@ -8,7 +8,8 @@ module.exports = {
 		description: `A starter blog demonstrating what Gatsby can do.`,
 		siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
 		social: {
-			twitter: `kylemathews`,
+			twitter: `meilou`,
+			instagram: `ren.amelie`,
 		},
 	},
 	plugins: [
@@ -24,6 +25,13 @@ module.exports = {
 			options: {
 				path: `${__dirname}/content/assets`,
 				name: `assets`,
+			},
+		},
+		{
+			resolve: `gatsby-source-filesystem`,
+			options: {
+				path: `${__dirname}/content/categories`,
+				name: `categories`,
 			},
 		},
 		{

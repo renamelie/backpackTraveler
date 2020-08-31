@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 import Navbar from './NavBar/NavBar'
 import Header from './header'
+import Footer from './footer'
 
 const Layout = ({ location, title, children, className }) => {
 	const data = useStaticQuery(graphql`
@@ -23,16 +24,12 @@ const Layout = ({ location, title, children, className }) => {
 				<Header siteTitle={data.site.siteMetadata.title} />
 			</header>
 			<main className={className}>{children}</main>
-			<footer>
-				© {new Date().getFullYear()}, Built with
-				{` `}
-				<a href="https://www.gatsbyjs.org">Gatsby</a>
-			</footer>
+			<Footer />
 		</>
 	)
 }
 
 export default styled(Layout)`
 	margin: 0 auto;
-	padding: 0 1.0875rem;
+	/* padding: 0 1.0875rem; */
 `

@@ -4,6 +4,7 @@ date: '2018-09-03T22:12:03.284Z'
 description: 'The essential Paris travel guide & map'
 country: 'Paris'
 category: 'Adventure'
+posttype: 'blog'
 image: './photo.jpg'
 ---
 

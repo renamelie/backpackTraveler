@@ -1,12 +1,51 @@
 import React from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
+import Img from 'gatsby-image'
 import styled from 'styled-components'
-import { pxToRem, media } from '../assets/js/helpers'
 
 const MyEssentials = ({ className }) => {
+	const data = useStaticQuery(graphql`
+		query MyEssentialsQuery {
+			allFile(
+				filter: { relativeDirectory: { eq: "essentials" } }
+				sort: { fields: [name], order: ASC }
+			) {
+				edges {
+					node {
+						name
+						childImageSharp {
+							fluid(maxWidth: 200, maxHeight: 200, quality: 100) {
+								...GatsbyImageSharpFluid_withWebp
+							}
+						}
+					}
+				}
+			}
+		}
+	`)
+
+	const essentialsList = data.allFile.edges
+
+	// console.log(essentialsList)
+
 	return (
 		<div className={className}>
 			<h3>My travel essentials</h3>
 			<p>We are the Backpack Traveler, your favorite travel assistants!</p>
+			<div className="essentialsPix">
+				{essentialsList.map(({ node }) => {
+					// console.log(node.name)
+					return (
+						<div key={node.name}>
+							<Img
+								fluid={node.childImageSharp.fluid}
+								alt={node.name}
+								style={{ height: '190px', width: '190px', margin: '1rem' }}
+							></Img>
+						</div>
+					)
+				})}
+			</div>
 		</div>
 	)
 }
@@ -16,37 +55,25 @@ export default styled(MyEssentials)`
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-
-	background-color: #f7f2ee;
 	padding: 2rem;
 	text-align: center;
 
-	h3,
-	p {
-		margin: 1rem 1rem 0;
+	background-color: #f7f2ee;
+	transition: 0.2s;
+
+	& img {
+		transition: transform 2s ease;
+		transition: 0.2s !important;
 	}
 
-	h3 {
-		font-family: Montserrat, sans-serif;
-		font-weight: 400;
-		font-size: ${pxToRem(17)};
-		line-height: 1.33em;
-		letter-spacing: 0.2em;
-		text-transform: uppercase;
+	& img:hover {
+		transform: translateY(-7px);
 	}
 
-	p {
-		color: #838383;
-		font-size: ${pxToRem(18)};
-		line-height: 30px;
+	.essentialsPix {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-around;
+		margin: 1rem;
 	}
-
-	${media.medium`
-		h3 {
-      font-size: ${pxToRem(24)};
-    }
-    p {
-      font-size: ${pxToRem(16)};
-    }
-  `};
 `

@@ -1,11 +1,10 @@
 ---
-title: VILLAGES IN THE BRAZIL
+title: LOW BUDGET
 date: '2018-09-03T22:12:03.284Z'
-description: 'Lorem ipsum dolor sit amet, no elitr tation delicata cum, mei in causae deseruisse. Has eruditi singulis principes ad, eam fuisset voluptua ea, pro ceteros adipisci in. Sed tempor adversarium ad'
-country: 'Canada'
-category: 'Adventure'
-posttype: 'blog'
-image: './photo.jpg'
+description: 'Hello World'
+destinations: '2 DESTINATIONS'
+posttype: 'category'
+image: './photo.png'
 ---
 
 This is my first post on my new fake blog! How exciting!
@@ -20,4 +19,4 @@ I'm sure I'll write a lot more interesting things in the future.
 > salted duck eggs have a briny aroma, a gelatin-like egg white and a
 > firm-textured, round yolk that is bright orange-red in color.
 
-![Photo](./photo.jpg)
+![Photo](./photo.png)
