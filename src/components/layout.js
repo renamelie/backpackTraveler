@@ -17,11 +17,20 @@ const Layout = ({ location, title, children, className }) => {
 		}
 	`)
 
+	// const rootPath = `${__PATH_PREFIX__}/`
+	// let header
+
+	// if (location.pathname === rootPath) {
+	// 	header = (
+	// 		<Header siteTitle={data.site.siteMetadata.title} location={location} />
+	// 	)
+	// }
+
 	return (
 		<>
 			<header>
 				<Navbar siteTitle={data.site.siteMetadata.title} />
-				<Header siteTitle={data.site.siteMetadata.title} />
+				<Header siteTitle={data.site.siteMetadata.title} location={location} />
 			</header>
 			<main className={className}>{children}</main>
 			<Footer />
@@ -30,6 +39,6 @@ const Layout = ({ location, title, children, className }) => {
 }
 
 export default styled(Layout)`
-	margin: 0 auto;
-	/* padding: 0 1.0875rem; */
+	/* border: 2px solid pink; */
+	margin: 0;
 `

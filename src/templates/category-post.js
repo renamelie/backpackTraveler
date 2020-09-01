@@ -7,7 +7,7 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 import { rhythm, scale } from '../utils/typography'
 
-const BlogPostTemplate = ({ data, pageContext, location, className }) => {
+const CatPostTemplate = ({ data, pageContext, location, className }) => {
 	const post = data.markdownRemark
 	const siteTitle = data.site.siteMetadata.title
 	const { previous, next } = pageContext
@@ -80,7 +80,7 @@ const BlogPostTemplate = ({ data, pageContext, location, className }) => {
 	)
 }
 
-export default styled(BlogPostTemplate)`
+export default styled(CatPostTemplate)`
 	border: 2px solid purple;
 `
 

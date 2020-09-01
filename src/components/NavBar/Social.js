@@ -54,7 +54,7 @@ export default Styled(Social)`
     color: black;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 999px) {
     display: none;
   }
 

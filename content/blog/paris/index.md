@@ -5,6 +5,7 @@ description: 'The essential Paris travel guide & map'
 country: 'Paris'
 category: 'Adventure'
 posttype: 'blog'
+name: 'Ren Amélie'
 image: './photo.jpg'
 ---
 

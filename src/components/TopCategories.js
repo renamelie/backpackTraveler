@@ -38,8 +38,6 @@ const TopCategories = ({ className }) => {
 
 	const posts = data.allMarkdownRemark.edges
 
-	console.log(posts)
-
 	return (
 		<div className={className}>
 			<h3>Top categories</h3>
@@ -88,6 +86,7 @@ export default styled(TopCategories)`
 		margin: 1rem;
 		padding: 1.5rem;
 		cursor: pointer;
+		min-width: 220px;
 	}
 
 	${media.bigMedium`
@@ -108,7 +107,7 @@ export default styled(TopCategories)`
 		transform: translateY(-5px);
 	}
 
-	h4 {
+	& h4 {
 		font-family: 'Montserrat', sans-serif;
 		font-size: 14px;
 		line-height: 1.57em;
@@ -116,13 +115,8 @@ export default styled(TopCategories)`
 		margin: 5px 0;
 	}
 
-	p {
-		color: #959595;
-		font-family: Montserrat, sans-serif;
-		line-height: 1.8em;
-		text-transform: uppercase;
+	& .articleText p {
 		font-size: 10px;
-		font-weight: 400;
-		letter-spacing: 0.33em;
+		margin: 0;
 	}
 `

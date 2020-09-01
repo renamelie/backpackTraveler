@@ -36,36 +36,32 @@ exports.createPages = async ({ graphql, actions }) => {
 	// Create blog posts pages.
 	const posts = result.data.allMarkdownRemark.edges
 
-	const blogEdges = posts.filter(
-		edge => edge.node.frontmatter.posttype === `blog`
-	)
-	const categoryEdges = posts.filter(
-		edge => edge.node.frontmatter.posttype === `category`
-	)
+	posts.forEach((post, index) => {
+		const previous = index === posts.length - 1 ? null : posts[index + 1].node
+		const next = index === 0 ? null : posts[index - 1].node
 
-	categoryEdges.forEach((post, index) => {
-		createPage({
-			path: post.node.fields.slug,
-			component: categoryPost,
-			context: {
-				slug: post.node.fields.slug,
-			},
-		})
-	})
-
-	blogEdges.forEach((post, index) => {
-		const previous =
-			index === blogEdges.length - 1 ? null : blogEdges[index + 1].node
-		const next = index === 0 ? null : blogEdges[index - 1].node
-		createPage({
-			path: post.node.fields.slug,
-			component: blogPost,
-			context: {
-				slug: post.node.fields.slug,
-				previous,
-				next,
-			},
-		})
+		console.log(post.node.frontmatter.posttype)
+		if (post.node.frontmatter.posttype === 'category') {
+			createPage({
+				path: post.node.fields.slug,
+				component: categoryPost,
+				context: {
+					slug: post.node.fields.slug,
+					// previous,
+					// next,
+				},
+			})
+		} else {
+			createPage({
+				path: post.node.fields.slug,
+				component: blogPost,
+				context: {
+					slug: post.node.fields.slug,
+					previous,
+					next,
+				},
+			})
+		}
 	})
 }
 

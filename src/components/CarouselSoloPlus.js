@@ -173,5 +173,7 @@ export default styled(CarouselSlide)`
 
 	.desc {
 		text-align: center;
+		text-transform: none;
+		letter-spacing: 0;
 	}
 `

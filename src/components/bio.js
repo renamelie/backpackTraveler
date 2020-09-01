@@ -1,22 +1,16 @@
-/**
- * Bio component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import Image from 'gatsby-image'
 
-import { rhythm } from '../utils/typography'
+import styled from 'styled-components'
+import { pxToRem, media } from '../assets/js/helpers'
 
-const Bio = () => {
+const Bio = ({ className }) => {
 	const data = useStaticQuery(graphql`
 		query BioQuery {
-			avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
+			avatar: file(absolutePath: { regex: "/profile-me.png/" }) {
 				childImageSharp {
-					fixed(width: 50, height: 50) {
+					fixed(width: 100, height: 100) {
 						...GatsbyImageSharpFixed
 					}
 				}
@@ -28,7 +22,7 @@ const Bio = () => {
 						summary
 					}
 					social {
-						twitter
+						instagram
 					}
 				}
 			}
@@ -37,34 +31,54 @@ const Bio = () => {
 
 	const { author, social } = data.site.siteMetadata
 	return (
-		<div
-			style={{
-				display: `flex`,
-				marginBottom: rhythm(2.5),
-			}}
-		>
-			<Image
-				fixed={data.avatar.childImageSharp.fixed}
-				alt={author.name}
-				style={{
-					marginRight: rhythm(1 / 2),
-					marginBottom: 0,
-					minWidth: 50,
-					borderRadius: `100%`,
-				}}
-				imgStyle={{
-					borderRadius: `50%`,
-				}}
-			/>
+		<div className={className}>
+			<Image fixed={data.avatar.childImageSharp.fixed} alt={author.name} />
 			<p>
-				Written by <strong>{author.name}</strong> {author.summary}
-				{` `}
-				<a href={`https://twitter.com/${social.twitter}`}>
-					You should follow him on Twitter
-				</a>
+				{author.summary}{' '}
+				<a
+					href={`https://www.instagram.com/${social.instagram}`}
+					target="_blank"
+					rel="noreferrer"
+				>
+					Follow me on Insta
+				</a>{' '}
+				!
+				<br />
+				<strong>{author.name}</strong>
 			</p>
 		</div>
 	)
 }
 
-export default Bio
+export default styled(Bio)`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: ${pxToRem(30)} 0;
+	padding: ${pxToRem(20)};
+	background-color: white;
+
+	& img {
+		border-radius: 50%;
+		border: 1px solid pink;
+	}
+
+	& div {
+		min-width: 100px;
+		min-height: 100px;
+	}
+
+	& p {
+		margin: ${pxToRem(10)};
+	}
+
+	& a {
+		color: black;
+		text-decoration: underline;
+		box-shadow: none;
+	}
+
+	${media.small`
+		flex-direction: row;
+	`}
+`

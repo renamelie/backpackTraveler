@@ -49,11 +49,11 @@ const CarouselSlide = ({ className }) => {
 			items: 4,
 		},
 		desktop: {
-			breakpoint: { max: 1300, min: 1024 },
+			breakpoint: { max: 1300, min: 900 },
 			items: 3,
 		},
 		tablet: {
-			breakpoint: { max: 1024, min: 600 },
+			breakpoint: { max: 900, min: 600 },
 			items: 2,
 		},
 		mobile: {
@@ -96,15 +96,12 @@ const CarouselSlide = ({ className }) => {
 }
 
 export default styled(CarouselSlide)`
-	margin: 0 2rem;
+	margin: 3rem 2rem;
+
 	article {
 		display: flex;
 		flex-flow: column nowrap;
 		margin: 0 5px;
-	}
-
-	ul {
-		margin-bottom: 3rem;
 	}
 
 	.articleImg {
@@ -121,45 +118,20 @@ export default styled(CarouselSlide)`
 		filter: brightness(90%);
 	}
 
-	.articleText {
+	& .articleText {
 		border: 1px solid #f2f2f2;
-		flex: 1;
-		display: flex;
-		flex-flow: column nowrap;
-		justify-content: center;
-		align-items: center;
-		padding: 0 10%;
 		min-height: 200px;
 	}
 
-	h2,
-	h4 {
-		margin: 0;
-		text-align: center;
-	}
-
-	h2 {
-		font-family: 'Epic Ride', sans-serif;
+	.articleText h2 {
 		font-size: 3rem;
-		font-weight: 400;
 	}
 
-	h4 {
-		font-family: 'Montserrat', sans-serif;
+	.articleText h4 {
 		font-size: 14px;
-		line-height: 1.57em;
-		font-weight: 500;
-		margin: 5px 0;
 	}
 
-	p {
-		color: #959595;
-		font-family: Montserrat, sans-serif;
-		line-height: 1.8em;
-		text-transform: uppercase;
+	.articleText p {
 		font-size: 10px;
-		font-weight: 400;
-		letter-spacing: 0.33em;
-		margin: 15px 0;
 	}
 `

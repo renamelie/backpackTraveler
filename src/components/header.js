@@ -8,44 +8,62 @@ import icon2 from '../images/header-icon-2.png'
 import icon3 from '../images/header-icon-3.png'
 import icon4 from '../images/header-icon-4.png'
 
-const Header = ({ siteTitle, className }) => (
-	<div className={className}>
-		<div className="left">
-			<div className="cat">
-				<span>
-					<img src={icon1} alt="icon1" />
-				</span>
-				<p>Get Inspired</p>
+const Header = ({ siteTitle, className, location }) => {
+	const rootPath = `${__PATH_PREFIX__}/`
+	let header
+
+	if (location.pathname === rootPath) {
+		header = (
+			<>
+				<div className="left">
+					<div className="cat">
+						<span>
+							<img src={icon1} alt="icon1" />
+						</span>
+						<p>Get Inspired</p>
+					</div>
+					<div className="cat">
+						<span>
+							<img src={icon2} alt="icon2" />
+						</span>
+						<p>My Books</p>
+					</div>
+				</div>
+				<div className="mid">
+					<Link to="/">
+						<h1>{siteTitle}</h1>
+						<p>Never Ending Footsteps</p>
+					</Link>
+				</div>
+				<div className="right">
+					<div className="cat">
+						<span>
+							<img src={icon3} alt="icon3" />
+						</span>
+						<p>Travel Guides</p>
+					</div>
+					<div className="cat">
+						<span>
+							<img src={icon4} alt="icon4" />
+						</span>
+						<p>About Me</p>
+					</div>
+				</div>
+			</>
+		)
+	} else {
+		header = (
+			<div className="mid">
+				<Link to="/">
+					<h1>{siteTitle}</h1>
+					<p>Never Ending Footsteps</p>
+				</Link>
 			</div>
-			<div className="cat">
-				<span>
-					<img src={icon2} alt="icon2" />
-				</span>
-				<p>My Books</p>
-			</div>
-		</div>
-		<div className="mid">
-			<Link to="/">
-				<h1>{siteTitle}</h1>
-				<p>Never Ending Footsteps</p>
-			</Link>
-		</div>
-		<div className="right">
-			<div className="cat">
-				<span>
-					<img src={icon3} alt="icon3" />
-				</span>
-				<p>Travel Guides</p>
-			</div>
-			<div className="cat">
-				<span>
-					<img src={icon4} alt="icon4" />
-				</span>
-				<p>About Me</p>
-			</div>
-		</div>
-	</div>
-)
+		)
+	}
+
+	return <div className={className}>{header}</div>
+}
 
 export default styled(Header)`
 	display: none;
@@ -53,7 +71,7 @@ export default styled(Header)`
 	margin: 3rem 0;
 	text-align: center;
 
-	${media.medium`
+	${media.bigMedium`
 		display: flex;
 	`}
 
@@ -95,7 +113,7 @@ export default styled(Header)`
 		font-size: 3rem;
 	}
 
-	h1 {
+	& h1 {
 		margin: 0;
 		font-family: 'Epic Ride';
 		font-weight: 400;
@@ -104,7 +122,7 @@ export default styled(Header)`
 		text-decoration: none;
 	}
 
-	p {
+	& p {
 		color: #959595;
 		font-family: Montserrat, sans-serif;
 		font-size: 10px;

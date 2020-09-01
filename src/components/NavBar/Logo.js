@@ -19,7 +19,7 @@ const FcGlobeIcon = styled(FcGlobe)`
 
 	display: block;
 
-	@media (max-width: 768px) {
+	@media (max-width: 999px) {
 		display: none;
 	}
 `
@@ -49,7 +49,7 @@ export default styled(Logo)`
 		transform: rotate(180deg);
 	}
 
-	@media (max-width: 768px) {
+	@media (max-width: 999px) {
 		h1 {
 			display: block;
 		}

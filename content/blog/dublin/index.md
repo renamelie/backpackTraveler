@@ -5,6 +5,7 @@ description: 'Lorem ipsum dolor sit amet, no elitr tation delicata cum, mei in c
 country: 'Canada'
 category: 'Adventure'
 posttype: 'blog'
+name: 'Ren Amélie'
 image: './photo.jpg'
 ---
 
