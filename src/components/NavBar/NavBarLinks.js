@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { pxToRem } from '../../assets/js/helpers'
+import { AiFillStar } from 'react-icons/ai'
 
 const pageList = [
 	{
@@ -15,6 +16,7 @@ const pageList = [
 	{
 		link: '/travel',
 		text: 'Travel',
+		icon: `AiFillStar`,
 	},
 	{
 		link: '/blog',
@@ -70,18 +72,23 @@ const NavItem = styled(Link)`
 		font-weight: 500;
 		letter-spacing: 0.23em;
 	}
+`
 
-	/* .navActive span {
-		color: #f7775e;
-	} */
+const IconStar = styled(AiFillStar)`
+	color: #f7775e;
+	font-size: 10px;
+	position: absolute;
+	top: 5px;
+	right: -8px;
 `
 
 const NavBarLinks = () => {
 	return (
 		<>
-			{pageList.map(({ link, text }) => (
+			{pageList.map(({ link, text, icon }) => (
 				<NavItem key={text} activeClassName="navActive" to={link}>
 					<span>{text}</span>
+					{icon && <IconStar />}
 				</NavItem>
 			))}
 		</>

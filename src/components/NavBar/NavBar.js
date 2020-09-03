@@ -13,7 +13,7 @@ const Navigation = styled.nav`
 	height: 60px;
 	margin: 0 auto;
 	padding: 0 5vw;
-	z-index: 2;
+	z-index: 9999;
 	align-self: center;
 
 	@media (max-width: 999px) {

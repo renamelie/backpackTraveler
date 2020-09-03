@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { media } from '../assets/js/helpers'
@@ -51,6 +51,8 @@ const Header = ({ siteTitle, className, location }) => {
 				</div>
 			</>
 		)
+	} else if (location.pathname === '/travel') {
+		header = <Fragment></Fragment>
 	} else {
 		header = (
 			<div className="mid">

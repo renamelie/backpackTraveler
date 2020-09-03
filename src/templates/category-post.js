@@ -37,7 +37,6 @@ const CatPostTemplate = ({ data, pageContext, location, className }) => {
 					>
 						{post.frontmatter.date}
 					</p>
-					AMS EST LA
 				</header>
 				<section dangerouslySetInnerHTML={{ __html: post.html }} />
 				<hr
@@ -81,7 +80,7 @@ const CatPostTemplate = ({ data, pageContext, location, className }) => {
 }
 
 export default styled(CatPostTemplate)`
-	border: 2px solid purple;
+	margin: 1rem;
 `
 
 export const pageQuery = graphql`

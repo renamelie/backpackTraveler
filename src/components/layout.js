@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import Navbar from './NavBar/NavBar'
 import Header from './header'
 import Footer from './footer'
+import ScrollTop from '../components/ScrollTo'
 
 const Layout = ({ location, title, children, className }) => {
 	const data = useStaticQuery(graphql`
@@ -17,21 +18,13 @@ const Layout = ({ location, title, children, className }) => {
 		}
 	`)
 
-	// const rootPath = `${__PATH_PREFIX__}/`
-	// let header
-
-	// if (location.pathname === rootPath) {
-	// 	header = (
-	// 		<Header siteTitle={data.site.siteMetadata.title} location={location} />
-	// 	)
-	// }
-
 	return (
 		<>
 			<header>
 				<Navbar siteTitle={data.site.siteMetadata.title} />
 				<Header siteTitle={data.site.siteMetadata.title} location={location} />
 			</header>
+			<ScrollTop />
 			<main className={className}>{children}</main>
 			<Footer />
 		</>
@@ -39,6 +32,5 @@ const Layout = ({ location, title, children, className }) => {
 }
 
 export default styled(Layout)`
-	/* border: 2px solid pink; */
 	margin: 0;
 `
