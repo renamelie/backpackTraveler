@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { FaArrowCircleUp } from 'react-icons/fa'
 
@@ -17,7 +17,9 @@ const ScrollArrow = ({ className }) => {
 		window.scrollTo({ top: 0, behavior: 'smooth' })
 	}
 
-	window.addEventListener('scroll', checkScrollTop)
+	useEffect(() => {
+		window.addEventListener('scroll', checkScrollTop)
+	})
 
 	return (
 		<FaArrowCircleUp
